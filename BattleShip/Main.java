@@ -1,11 +1,7 @@
-
-
-
 import java.util.Scanner;
 
 public class Main extends Board {
-
-
+	
     public static void main(String[] args) {
 	// write your code here
         Main main = new Main();
