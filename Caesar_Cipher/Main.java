@@ -1,61 +1,17 @@
 
 
-import java.io.File;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.nio.*;
 
 public class Main {
 
+    private String checkSum;
+
     public static void main(String[] args) {
-
-        Charset utf8 = StandardCharsets.UTF_8;
-        
-
-
-            interact_with_user();
-
-
-
-        // if(!messageLog.exists()){
-        //     try{
-
-                
-
-        //         System.out.println("Enter a message to encrypt:");
-        //         char[] arr = sc.nextLine().toCharArray();
-        //         System.out.println("Enter a number to shift");
-        //         int change = sc.nextInt();
-
-        //         List<String> decrypted = Arrays.asList(String.valueOf(arr));
-                
-        //         Files.write(Paths.get("output.txt"), decrypted);
-
-            
-        //         ArrayList<Character> encrypt = new ArrayList<>();
-        //         for(int i = 0; i < arr.length; i++){
-        //             encrypt.add(arr[i] += change);
-        //         }
-        //         List<String> encrypted = Arrays.asList(String.valueOf(encrypt));
-        //         Files.write(Paths.get("output.txt"), encrypted, utf8, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-        
-        //         ArrayList<Character> decrypt = new ArrayList<>();
-        //         for(int i = 0; i < arr.length; i++){
-        //             decrypt.add(arr[i] -= change);
-        //         }
-        //         System.out.println(decrypt);
-
-        //     }catch(IOException e){
-        //         System.out.println("Looks like we had a problem creating the file");
-        //     }
-        // }
+        interact_with_user();
                   
    }
+
    private static void interact_with_user(){
 
        Scanner sc = new Scanner(System.in);
@@ -71,13 +27,15 @@ public class Main {
                 encrypt_function(user_message, private_key);
             
             case "decrypt":
-                //decrypt_function();    
+                System.out.println("Enter key number (1 - 52)");
+                int key = sc.nextInt();
+                decrypt_function(key);    
        }
        sc.close();
    }
 
     private static void encrypt_function(String str, int key){
-        
+    
         char[] arr = str.toCharArray();
         for(int i = 0; i < arr.length; i++){
             arr[i] = (arr[i] += key);
@@ -88,14 +46,40 @@ public class Main {
             file.createNewFile();
             List<String> encrypted = Arrays.asList(String.valueOf(arr));
             Files.write(file.toPath(), encrypted, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-        
-
         } catch (Exception e) {
             System.out.println("Looks like something happened! with encryption");
         }
     }
 
-    private static void decrypt_function(){
+    private static void decrypt_function(int key){
+        Main main = new Main();
+        File file = new File("Encryption\\encrypted.txt");
+        
+        if(file.exists()){
+            try{
+                Path path = Paths.get("Encryption/encrypted.txt");
+                String read = Files.readAllLines(path).get(0);
+                main.setCheckSum(read);
+                char[] arr = main.getCheckSum().toCharArray();
+                for(int i = 0; i < arr.length; i++){
+                    arr[i] = (arr[i] -= key);
+                }
+                String ans = String.valueOf(arr);
+                System.out.println("Your message is: " + ans);
+    
+            }catch(IOException e){
+                System.out.println("Looks like something happened with decryption!");
+            }   
+        }else
+            System.out.println("Looks like your secrete message is not here. Please encrypt a message first!");
+        
+    }
 
+
+    private void setCheckSum(String checkSum){
+        this.checkSum = checkSum;
+    }
+    private String getCheckSum(){
+        return checkSum;
     }
 }
