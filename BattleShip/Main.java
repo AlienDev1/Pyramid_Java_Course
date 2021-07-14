@@ -1,6 +1,6 @@
-package com.company;
 
-import java.util.Locale;
+
+
 import java.util.Scanner;
 
 public class Main extends Board {
@@ -16,17 +16,17 @@ public class Main extends Board {
 
         try{
 
-//            System.out.println("Battleship Multiplayer");
-//            System.out.println("Enter Player 1 name: ");
-//            String player1 = sc.nextLine();
-//            System.out.println("Enter player 2 name: ");
-//            String player2 = sc.nextLine();
+           System.out.println("Battleship Multiplayer");
+           System.out.println("Enter Player 1 name: ");
+           String player1 = sc.nextLine();
+           System.out.println("Enter player 2 name: ");
+           String player2 = sc.nextLine();
             int counter = 0;
 
             while (counter < 2){
                 ++counter;
                 //Placing the ships pre-game
-//                System.out.println(player1 + ", please enter the coordinates for your ships.");
+               System.out.println(player1 + ", please enter the coordinates for your ships.");
 
                 main.print_board();
                 System.out.println("Enter the coordinates for the carrier: x-axis");
