@@ -1,21 +1,36 @@
 
 
+
 import java.util.*;
 import java.io.*;
-import java.nio.*;
-
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 public class Main {
 
     private String checkSum;
 
     public static void main(String[] args) {
-        interact_with_user();
-                  
+        Scanner sc = new Scanner(System.in);
+        
+        boolean exit_code = false;
+        do{
+            try {
+                interact_with_user(sc);
+            } catch (Exception e) {
+                continue;
+            }
+            System.out.println("Would you like to run the application again?");
+            char decision = sc.nextLine().charAt(0);
+
+            if(decision == 'n') exit_code = true;            
+        }while(exit_code = false);
+        sc.close();   
    }
 
-   private static void interact_with_user(){
-
-       Scanner sc = new Scanner(System.in);
+   private static void interact_with_user(Scanner sc){
+    
        System.out.println("Do you want to encrypt or decrypt?");
        String user_selection = sc.nextLine().toLowerCase();
 
@@ -26,13 +41,14 @@ public class Main {
                 System.out.println("Enter key number (1 - 52)");
                 int private_key = sc.nextInt();
                 encrypt_function(user_message, private_key);
+                break;
             
             case "decrypt":
                 System.out.println("Enter key number (1 - 52)");
                 int key = sc.nextInt();
-                decrypt_function(key);    
-       }
-       sc.close();
+                decrypt_function(key);
+                break;    
+        }
    }
 
     private static void encrypt_function(String str, int key){
@@ -47,6 +63,8 @@ public class Main {
             file.createNewFile();
             List<String> encrypted = Arrays.asList(String.valueOf(arr));
             Files.write(file.toPath(), encrypted, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            System.out.println(encrypted);
+
         } catch (Exception e) {
             System.out.println("Looks like something happened! with encryption");
         }
@@ -68,18 +86,17 @@ public class Main {
                 String ans = String.valueOf(arr);
                 System.out.println("Your message is: " + ans);
     
-            }catch(IOException e){
+            }catch(Exception e){
                 System.out.println("Looks like something happened with decryption!");
             }   
         }else
             System.out.println("Looks like your secrete message is not here. Please encrypt a message first!");
-        
     }
-
 
     private void setCheckSum(String checkSum){
         this.checkSum = checkSum;
     }
+
     private String getCheckSum(){
         return checkSum;
     }
