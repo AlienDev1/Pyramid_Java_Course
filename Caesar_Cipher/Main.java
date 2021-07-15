@@ -1,6 +1,3 @@
-
-
-
 import java.util.*;
 import java.io.*;
 import java.nio.file.Files;
@@ -17,7 +14,9 @@ public class Main {
         boolean exit_code = false;
         do{
             try {
+
                 interact_with_user(sc);
+                
             } catch (Exception e) {
                 continue;
             }
@@ -26,7 +25,7 @@ public class Main {
 
             if(decision == 'n') exit_code = true;            
         }while(exit_code = false);
-        sc.close();   
+        sc.close();           
    }
 
    private static void interact_with_user(Scanner sc){
@@ -100,4 +99,5 @@ public class Main {
     private String getCheckSum(){
         return checkSum;
     }
+    
 }

@@ -11,6 +11,7 @@ public class Main extends GamePlay {
     public static void main(String[] args) {
         Main main = new Main();
         Scanner sc = new Scanner(System.in);
+        // Write to a File Printing the user name and high score!
 
         try{
 

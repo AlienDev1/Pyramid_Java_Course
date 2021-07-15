@@ -1,7 +1,8 @@
+
 import java.util.Scanner;
 
 public class Main extends Board {
-	
+
     public static void main(String[] args) {
 	// write your code here
         Main main = new Main();
@@ -11,13 +12,13 @@ public class Main extends Board {
         char direction;
 
         try{
-
            System.out.println("Battleship Multiplayer");
            System.out.println("Enter Player 1 name: ");
            String player1 = sc.nextLine();
            System.out.println("Enter player 2 name: ");
            String player2 = sc.nextLine();
-            int counter = 0;
+           int counter = 0;
+
 
             while (counter < 2){
                 ++counter;
@@ -95,6 +96,7 @@ public class Main extends Board {
             System.out.println("Something Happened Here in Main");
         }
     }
+    
     public void print_board(){
         System.out.println("    1   2   3   4   5   6   7");
         System.out.println("  "+"|---|---|---|---|---|---|---|");

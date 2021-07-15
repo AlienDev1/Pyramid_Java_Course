@@ -1,4 +1,4 @@
-package com.company;
+
 
 import java.util.Scanner;
 
@@ -24,7 +24,6 @@ public class Main {
                         "\nGobbles you down in one bite"
                 );
                 break;
-
             case 2:
                 System.out.println(
                         "You approach the cave..."+
@@ -33,7 +32,6 @@ public class Main {
                         "\nSays here is my treasure I would be honored to share"
                 );
                 break;
-
             default:
                 System.out.println(
                         "Please walk through one of the two caves"

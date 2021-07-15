@@ -1,5 +1,3 @@
-package com.company;
-
 public class Human extends Land implements Goblin{
 
     int humanStarter = 50;
@@ -15,10 +13,9 @@ public class Human extends Land implements Goblin{
                 // set new human attack strength
             }else if(human_life < 25){
                 setHuman_life(getHuman_life()+(goblin_attack_strength % human_attack_strength));
-                // Set new attack strength
+                // Set new attack strength 
             }
-        }else
-        if(goblin_attack_strength >= human_attack_strength ){
+        }else if(goblin_attack_strength >= human_attack_strength ){
             setHuman_life(humanStarter-(goblin_attack_strength % human_attack_strength));
             // set new human attack strength
         }else if(human_life < 25){
@@ -39,5 +36,4 @@ public class Human extends Land implements Goblin{
     protected void setHuman_attack_strength(int human_attack_strength) {
         this.human_attack_strength = human_attack_strength;
     }
-
 }

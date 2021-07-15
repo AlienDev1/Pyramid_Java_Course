@@ -1,4 +1,4 @@
-package com.company;
+
 
 abstract class Controller extends Ship{
 
