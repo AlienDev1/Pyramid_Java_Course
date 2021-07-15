@@ -27,9 +27,9 @@ public class Main extends Board {
         System.out.println("This is player 1 board ^");
         
         
-        // main.setCurrentBoard(main.getPlayer2Board());
-        // main.print_board();
-        // System.out.println("This is player 2 board ^");
+        main.setCurrentBoard(main.getPlayer2Board());
+        main.print_board();
+        System.out.println("This is player 2 board ^");
 
 
         //     main.setPlayer2Board(main.currentBoard);
@@ -140,7 +140,7 @@ public class Main extends Board {
 
         // Clears the Current Working board
         main.newBoard(false);
-        
+
         //Done Also commented out code that resets x and y to 0
         char direction;
         byte player = 2;
@@ -204,9 +204,8 @@ public class Main extends Board {
         direction = sc.next().toUpperCase().charAt(0);
         main.placeShip(direction, player);
 
-        main.newBoard(false);
 
-//   main.setPlayer1Board(main.getCurrentBoard());      
+        main.setPlayer1Board(main.getCurrentBoard());      
         // main.newBoard();
         // main.setX_axis(0);
         // main.setY_axis(0);
