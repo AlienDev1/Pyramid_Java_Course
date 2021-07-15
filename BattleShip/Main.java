@@ -7,7 +7,7 @@ public class Main extends Board {
 	// write your code here
         Main main = new Main();
         Scanner sc = new Scanner(System.in);
-        main.newBoard();
+        main.newBoard(true); // Resets the game!
         // boolean exit_code = false;
 
         // try{
@@ -126,7 +126,7 @@ public class Main extends Board {
         main.placeShip(direction, player);
 
         // Clears the Current Working board
-        main.newBoard();
+        main.newBoard(false);
 
 
         // Resetting X and Y axis to default value per loop iteration
@@ -201,7 +201,7 @@ public class Main extends Board {
         direction = sc.next().toUpperCase().charAt(0);
         main.placeShip(direction, player);
 
-        main.newBoard();
+        main.newBoard(false);
 
 //   main.setPlayer1Board(main.getCurrentBoard());      
         // main.newBoard();

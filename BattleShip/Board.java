@@ -8,12 +8,12 @@ public class Board extends Controller{
     int y_axis = 0;
 
     // Clear Board
-    protected void newBoard() {
+    protected void newBoard(boolean restart_game) {
         char[][] update = getCurrentBoard();
 
         // Resets All Boards Within the Game
         if(restart_game == true){
-            char[][] update = getCurrentBoard();
+
             for(int row = 0; row < currentBoard.length -1; row++){
                 for(int col = 0; col < currentBoard[row].length -1; col++){
                     update[row][col] = '~';
