@@ -10,14 +10,26 @@ public class Board extends Controller{
     // Clear Board
     protected void newBoard() {
         char[][] update = getCurrentBoard();
-        for(int row = 0; row < currentBoard.length -1; row++){
-            for(int col = 0; col < currentBoard[row].length -1; col++){
-                update[row][col] = '~';
+
+        // Resets All Boards Within the Game
+        if(restart_game == true){
+            char[][] update = getCurrentBoard();
+            for(int row = 0; row < currentBoard.length -1; row++){
+                for(int col = 0; col < currentBoard[row].length -1; col++){
+                    update[row][col] = '~';
+                }
             }
-        }
-        setCurrentBoard(update);
-        setPlayer1Board(update);
-        setPlayer2Board(update);
+            setCurrentBoard(update);
+            setPlayer1Board(update);
+            setPlayer2Board(update);
+        }else
+            // Only resets the Current Working board
+            for(int row = 0; row < currentBoard.length -1; row++){
+                for(int col = 0; col < currentBoard[row].length -1; col++){
+                    update[row][col] = '~';
+                }
+            }
+            setCurrentBoard(update);
     }
 
     protected void placeShip(char direction, byte player) {

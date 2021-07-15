@@ -18,9 +18,8 @@ public class Main extends Board {
         //    String player2 = sc.nextLine();
         //    System.out.println(player1 + ", please enter the coordinates for your ships to be placed");
         
-        
-        set_player_two_setUp(sc, main);
         set_player_one_setUp(sc, main);
+        set_player_two_setUp(sc, main);
         
         
         main.setCurrentBoard(main.getPlayer1Board());
@@ -126,6 +125,10 @@ public class Main extends Board {
         direction = sc.next().toUpperCase().charAt(0);
         main.placeShip(direction, player);
 
+        // Clears the Current Working board
+        main.newBoard();
+
+
         // Resetting X and Y axis to default value per loop iteration
         // main.setPlayer1Board(main.getCurrentBoard());
         // main.newBoard();
@@ -197,6 +200,8 @@ public class Main extends Board {
         System.out.println("Place horizontally or vertically (h or v)?");
         direction = sc.next().toUpperCase().charAt(0);
         main.placeShip(direction, player);
+
+        main.newBoard();
 
 //   main.setPlayer1Board(main.getCurrentBoard());      
         // main.newBoard();
