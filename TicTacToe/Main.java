@@ -1,4 +1,4 @@
-package com.company;
+
 
 import java.util.Scanner;
 
@@ -53,6 +53,7 @@ public class Main extends GamePlay {
             System.out.println("Looks like something happened here in main Jibri ");
         }
     }
+    
     public void printBoard(){
         char[][] updated = getGameBoard();
         System.out.println("|---|---|---|");
