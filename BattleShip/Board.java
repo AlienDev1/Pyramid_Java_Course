@@ -22,6 +22,7 @@ public class Board extends Controller{
             setCurrentBoard(update);
             setPlayer1Board(update);
             setPlayer2Board(update);
+
         }else
             // Only resets the Current Working board
             for(int row = 0; row < currentBoard.length -1; row++){
@@ -30,6 +31,7 @@ public class Board extends Controller{
                 }
             }
             setCurrentBoard(update);
+            
     }
 
     protected void placeShip(char direction, byte player) {
@@ -43,11 +45,11 @@ public class Board extends Controller{
                 }
                 switch(player){
                     case 1:
-                        setPlayer1Board(player1Board);
+                        setPlayer1Board(update);
                         break;
 
                     case 2:
-                        setPlayer2Board(player2Board);
+                        setPlayer2Board(update);
                         break;    
                 }
                 break;
@@ -58,11 +60,11 @@ public class Board extends Controller{
                 }
                 switch(player){
                     case 1:
-                        setPlayer1Board(player1Board);
+                        setPlayer1Board(update);
                         break;
 
                     case 2:
-                        setPlayer2Board(player2Board);
+                        setPlayer2Board(update);
                         break;    
                 }
         }

@@ -18,18 +18,18 @@ public class Main extends Board {
         //    String player2 = sc.nextLine();
         //    System.out.println(player1 + ", please enter the coordinates for your ships to be placed");
         
-        set_player_one_setUp(sc, main);
-        set_player_two_setUp(sc, main);
+        player_one_setUp(sc, main);
+        // player_two_setUp(sc, main);
         
-        
+        // Test
         main.setCurrentBoard(main.getPlayer1Board());
         main.print_board();
         System.out.println("This is player 1 board ^");
         
         
-        main.setCurrentBoard(main.getPlayer2Board());
-        main.print_board();
-        System.out.println("This is player 2 board ^");
+        // main.setCurrentBoard(main.getPlayer2Board());
+        // main.print_board();
+        // System.out.println("This is player 2 board ^");
 
 
         //     main.setPlayer2Board(main.currentBoard);
@@ -58,11 +58,11 @@ public class Main extends Board {
         System.out.println("  "+"|---------------------------|");
         System.out.println("7 "+"| " + currentBoard[6][0] + " | " + currentBoard[6][1] + " | " + currentBoard[6][2] + " | " + currentBoard[6][3] + " | " + currentBoard[6][4] + " | " + currentBoard[6][5] + " | " + currentBoard[6][6] + " |");
         System.out.println("  "+"|---|---|---|---|---|---|---|");
-
-        System.out.println("Use the Keys Above to navigate within the game!");
     }
 
-    protected static void set_player_one_setUp(Scanner sc, Main main){
+    // Experiemtn on Player1 
+    protected static void player_one_setUp(Scanner sc, Main main){
+        
         char direction;
         byte player = 1;
         
@@ -125,19 +125,22 @@ public class Main extends Board {
         direction = sc.next().toUpperCase().charAt(0);
         main.placeShip(direction, player);
 
-        // Clears the Current Working board
-        main.newBoard(false);
 
+        // Setting updated ship placments to player 1 board
+        main.setPlayer1Board(main.getCurrentBoard());
 
         // Resetting X and Y axis to default value per loop iteration
-        // main.setPlayer1Board(main.getCurrentBoard());
+        
         // main.newBoard();
         // main.setX_axis(0);
         // main.setY_axis(0);
     }
 
-    protected static void set_player_two_setUp(Scanner sc, Main main){
+    protected static void player_two_setUp(Scanner sc, Main main){
 
+        // Clears the Current Working board
+        main.newBoard(false);
+        
         //Done Also commented out code that resets x and y to 0
         char direction;
         byte player = 2;
