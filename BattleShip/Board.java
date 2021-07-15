@@ -20,22 +20,39 @@ public class Board extends Controller{
         setPlayer2Board(update);
     }
 
-    protected void placeShip(char direction) {
+    protected void placeShip(char direction, byte player) {
+
+        // If player == 1 add to Player 1 Board OR if player == 2 add to player 2 Board
         char[][] update = getCurrentBoard();
         switch (direction){
             case 'H':
                 for(int col = getX_axis(); col < getShipSize(); col++){
-                        update[getY_axis()][col] = getShipType();
+                    update[getY_axis()][col] = getShipType();
                 }
-                setCurrentBoard(update);
+                switch(player){
+                    case 1:
+                        setPlayer1Board(player1Board);
+                        break;
+
+                    case 2:
+                        setPlayer2Board(player2Board);
+                        break;    
+                }
                 break;
 
             case 'V':
                 for(int row = getY_axis(); row < getShipSize(); row++){
                         update[row][getX_axis()] = getShipType();
                 }
-                setCurrentBoard(update);
-                break;
+                switch(player){
+                    case 1:
+                        setPlayer1Board(player1Board);
+                        break;
+
+                    case 2:
+                        setPlayer2Board(player2Board);
+                        break;    
+                }
         }
     }
 

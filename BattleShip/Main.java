@@ -122,7 +122,9 @@ public class Main extends Board {
 
     protected static void set_player_two_setUp(Scanner sc, Main main){
 
+        //Done Also commented out code that resets x and y to 0
         char direction;
+        byte player = 2;
         System.out.println("Enter the coordinates for the carrier: x-axis");
         main.setX_axis(sc.nextInt()-1);
         System.out.println("Enter the coordinates for the carrier: y-axis");
@@ -130,9 +132,9 @@ public class Main extends Board {
         System.out.println("Place horizontally or vertically (h or v)?");
         main.carrier();
         direction = sc.next().toUpperCase().charAt(0);
-        main.placeShip(direction);
-        main.setY_axis(0);
-        main.setX_axis(0);
+        main.placeShip(direction, player);
+        // main.setY_axis(0);
+        // main.setX_axis(0);
 
         main.print_board();
         System.out.println("Enter the coordinates for the battleship: x-axis");
