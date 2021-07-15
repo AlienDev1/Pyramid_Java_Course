@@ -6,16 +6,16 @@ abstract class Ship {
     private char shipType;
 
     //Getter and Setter
-    public void setShipSize(int shipSize){
+    protected void setShipSize(int shipSize){
         this.shipSize = shipSize;
     }
-    public int getShipSize(){
+    protected int getShipSize(){
         return shipSize;
     }
-    public char getShipType() {
+    protected char getShipType() {
         return shipType;
     }
-    public void setShipType(char shipType) {
+    protected void setShipType(char shipType) {
         this.shipType = shipType;
     }
 }

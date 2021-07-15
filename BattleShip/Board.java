@@ -1,5 +1,4 @@
 
-
 public class Board extends Controller{
 
     char [][] currentBoard = new char[8][8];
@@ -42,34 +41,34 @@ public class Board extends Controller{
 
 
     //Getters and Setters
-    public void setCurrentBoard(char[][] currentBoard){
+    protected void setCurrentBoard(char[][] currentBoard){
         this.currentBoard = currentBoard;
     }
-    public char[][] getCurrentBoard(){
+    protected char[][] getCurrentBoard(){
         return currentBoard;
     }
-    public char[][] getPlayer1Board() {
+    protected char[][] getPlayer1Board() {
         return player1Board;
     }
-    public void setPlayer1Board(char[][] player1Board) {
+    protected void setPlayer1Board(char[][] player1Board) {
         this.player1Board = player1Board;
     }
-    public char[][] getPlayer2Board() {
+    protected char[][] getPlayer2Board() {
         return player2Board;
     }
-    public void setPlayer2Board(char[][] player2Board) {
+    protected void setPlayer2Board(char[][] player2Board) {
         this.player2Board = player2Board;
     }
-    public int getX_axis() {
+    protected int getX_axis() {
         return x_axis;
     }
-    public void setX_axis(int x_axis) {
+    protected void setX_axis(int x_axis) {
         this.x_axis = x_axis;
     }
-    public int getY_axis() {
+    protected int getY_axis() {
         return y_axis;
     }
-    public void setY_axis(int y_axis) {
+    protected void setY_axis(int y_axis) {
         this.y_axis = y_axis;
     }
 }
