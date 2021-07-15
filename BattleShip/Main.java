@@ -19,7 +19,18 @@ public class Main extends Board {
         //    System.out.println(player1 + ", please enter the coordinates for your ships to be placed");
         
         
-
+        set_player_two_setUp(sc, main);
+        set_player_one_setUp(sc, main);
+        
+        
+        main.setCurrentBoard(main.getPlayer1Board());
+        main.print_board();
+        System.out.println("This is player 1 board ^");
+        
+        
+        main.setCurrentBoard(main.getPlayer2Board());
+        main.print_board();
+        System.out.println("This is player 2 board ^");
 
 
         //     main.setPlayer2Board(main.currentBoard);
@@ -52,9 +63,12 @@ public class Main extends Board {
         System.out.println("Use the Keys Above to navigate within the game!");
     }
 
-    protected void set_player_one_setUp(Scanner sc, Main main){
+    protected static void set_player_one_setUp(Scanner sc, Main main){
         char direction;
         byte player = 1;
+        
+        System.out.println("Player 1");
+        main.print_board();
         System.out.println("Enter the coordinates for the carrier: x-axis");
         main.setX_axis(sc.nextInt()-1);
         System.out.println("Enter the coordinates for the carrier: y-axis");
@@ -124,6 +138,9 @@ public class Main extends Board {
         //Done Also commented out code that resets x and y to 0
         char direction;
         byte player = 2;
+
+        System.out.println("Player 2 !!");
+        main.print_board();
         System.out.println("Enter the coordinates for the carrier: x-axis");
         main.setX_axis(sc.nextInt()-1);
         System.out.println("Enter the coordinates for the carrier: y-axis");
