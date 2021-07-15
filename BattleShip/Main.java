@@ -16,9 +16,7 @@ public class Main extends Board {
         //    String player1 = sc.nextLine();
         //    System.out.println("Enter player 2 name: ");
         //    String player2 = sc.nextLine();
-        //    int counter = 0;
-
-        //    System.out.println(player1 + ", please enter the coordinates for your ships.");
+        //    System.out.println(player1 + ", please enter the coordinates for your ships to be placed");
         
         
 
@@ -56,6 +54,7 @@ public class Main extends Board {
 
     protected void set_player_one_setUp(Scanner sc, Main main){
         char direction;
+        byte player = 1;
         System.out.println("Enter the coordinates for the carrier: x-axis");
         main.setX_axis(sc.nextInt()-1);
         System.out.println("Enter the coordinates for the carrier: y-axis");
@@ -63,9 +62,9 @@ public class Main extends Board {
         System.out.println("Place horizontally or vertically (h or v)?");
         main.carrier();
         direction = sc.next().toUpperCase().charAt(0);
-        main.placeShip(direction);
-        main.setY_axis(0);
-        main.setX_axis(0);
+        main.placeShip(direction, player);
+        // main.setY_axis(0);
+        // main.setX_axis(0);
 
         main.print_board();
         System.out.println("Enter the coordinates for the battleship: x-axis");
@@ -75,9 +74,9 @@ public class Main extends Board {
         main.battleship();
         System.out.println("Place horizontally or vertically (h or v)?");
         direction = sc.next().toUpperCase().charAt(0);
-        main.placeShip(direction);
-        main.setY_axis(0);
-        main.setX_axis(0);
+        main.placeShip(direction, player);
+        // main.setY_axis(0);
+        // main.setX_axis(0);
 
         main.print_board();
         System.out.println("Enter the coordinates for the Submarine: x-axis");
@@ -87,9 +86,9 @@ public class Main extends Board {
         main.submarine();
         System.out.println("Place horizontally or vertically (h or v)?");
         direction = sc.next().toUpperCase().charAt(0);
-        main.placeShip(direction);
-        main.setY_axis(0);
-        main.setX_axis(0);
+        main.placeShip(direction, player);
+        // main.setY_axis(0);
+        // main.setX_axis(0);
 
         main.print_board();
         System.out.println("Enter the coordinates for the Destroyer: x-axis");
@@ -99,9 +98,9 @@ public class Main extends Board {
         main.destroyer();
         System.out.println("Place horizontally or vertically (h or v)?");
         direction = sc.next().toUpperCase().charAt(0);
-        main.placeShip(direction);
-        main.setY_axis(0);
-        main.setX_axis(0);
+        main.placeShip(direction, player);
+        // main.setY_axis(0);
+        // main.setX_axis(0);
 
         main.print_board();
         System.out.println("Enter the coordinates for the Patrol Boat: x-axis");
@@ -111,13 +110,13 @@ public class Main extends Board {
         main.patrol_boat();
         System.out.println("Place horizontally or vertically (h or v)?");
         direction = sc.next().toUpperCase().charAt(0);
-        main.placeShip(direction);
+        main.placeShip(direction, player);
 
         // Resetting X and Y axis to default value per loop iteration
-        main.setPlayer1Board(main.getCurrentBoard());
-        main.newBoard();
-        main.setX_axis(0);
-        main.setY_axis(0);
+        // main.setPlayer1Board(main.getCurrentBoard());
+        // main.newBoard();
+        // main.setX_axis(0);
+        // main.setY_axis(0);
     }
 
     protected static void set_player_two_setUp(Scanner sc, Main main){
@@ -144,9 +143,9 @@ public class Main extends Board {
         main.battleship();
         System.out.println("Place horizontally or vertically (h or v)?");
         direction = sc.next().toUpperCase().charAt(0);
-        main.placeShip(direction);
-        main.setY_axis(0);
-        main.setX_axis(0);
+        main.placeShip(direction, player);
+        // main.setY_axis(0);
+        // main.setX_axis(0);
 
         main.print_board();
         System.out.println("Enter the coordinates for the Submarine: x-axis");
@@ -156,9 +155,9 @@ public class Main extends Board {
         main.submarine();
         System.out.println("Place horizontally or vertically (h or v)?");
         direction = sc.next().toUpperCase().charAt(0);
-        main.placeShip(direction);
-        main.setY_axis(0);
-        main.setX_axis(0);
+        main.placeShip(direction, player);
+        // main.setY_axis(0);
+        // main.setX_axis(0);
 
         main.print_board();
         System.out.println("Enter the coordinates for the Destroyer: x-axis");
@@ -168,9 +167,9 @@ public class Main extends Board {
         main.destroyer();
         System.out.println("Place horizontally or vertically (h or v)?");
         direction = sc.next().toUpperCase().charAt(0);
-        main.placeShip(direction);
-        main.setY_axis(0);
-        main.setX_axis(0);
+        main.placeShip(direction, player);
+        // main.setY_axis(0);
+        // main.setX_axis(0);
 
         main.print_board();
         System.out.println("Enter the coordinates for the Patrol Boat: x-axis");
@@ -180,13 +179,12 @@ public class Main extends Board {
         main.patrol_boat();
         System.out.println("Place horizontally or vertically (h or v)?");
         direction = sc.next().toUpperCase().charAt(0);
-        main.placeShip(direction);
+        main.placeShip(direction, player);
 
-        // Resetting X and Y axis to default value per loop iteration
-        main.setPlayer1Board(main.getCurrentBoard());
-        main.newBoard();
-        main.setX_axis(0);
-        main.setY_axis(0);
+//   main.setPlayer1Board(main.getCurrentBoard());      
+        // main.newBoard();
+        // main.setX_axis(0);
+        // main.setY_axis(0);
     }
 }
 
