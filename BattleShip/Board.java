@@ -23,7 +23,7 @@ public class Board extends Controller{
             setPlayer1Board(update);
             setPlayer2Board(update);
 
-        }else
+        }else{
             // Only resets the Current Working board
             for(int row = 0; row < currentBoard.length -1; row++){
                 for(int col = 0; col < currentBoard[row].length -1; col++){
@@ -31,6 +31,7 @@ public class Board extends Controller{
                 }
             }
             setCurrentBoard(update);
+        }    
             
     }
 
@@ -67,6 +68,10 @@ public class Board extends Controller{
                         setPlayer2Board(update);
                         break;    
                 }
+                break;
+            
+            default:
+                placeShip(direction, player);
         }
     }
 
@@ -78,6 +83,7 @@ public class Board extends Controller{
     protected char[][] getCurrentBoard(){
         return currentBoard;
     }
+
     protected char[][] getPlayer1Board() {
         return player1Board;
     }
