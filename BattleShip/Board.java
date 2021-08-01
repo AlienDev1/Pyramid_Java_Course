@@ -1,9 +1,9 @@
 
 public class Board extends Controller{
 
-    char [][] currentBoard = new char[8][8];
-    char [][] player1Board = new char[8][8];
-    char [][] player2Board = new char[8][8];
+    private char [][] currentBoard = new char[8][8];
+    private char [][] player1Board = new char[8][8];
+    private char [][] player2Board = new char[8][8];
     int x_axis = 0;
     int y_axis = 0;
 
@@ -23,7 +23,7 @@ public class Board extends Controller{
             setPlayer1Board(update);
             setPlayer2Board(update);
 
-        }else{
+        }else if(restart_game == false){
             // Only resets the Current Working board
             for(int row = 0; row < currentBoard.length -1; row++){
                 for(int col = 0; col < currentBoard[row].length -1; col++){
