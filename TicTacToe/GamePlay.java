@@ -1,11 +1,14 @@
 
 
 public class GamePlay {
+
     char[][] gameBoard = new char[3][3];
     char turn;
     char computer_character;
-    int computer_position = (int) Math.random()* (1 - 9+1) + 1;
+    int computer_position = (int) Math.random()* (1-9+1)+1;
     char user;
+    String player1;
+    String player2;
 
     protected void update_board(int selection, char turn){
         char[][] update = getGameBoard();
@@ -16,6 +19,7 @@ public class GamePlay {
                     setGameBoard(update);
                     break;
                 }
+
             case 2:
                 if(Character.isDigit(update[0][1])){
                     update[0][1] = turn;
@@ -29,12 +33,14 @@ public class GamePlay {
                     setGameBoard(update);
                     break;
                 }
+
             case 4:
                 if(Character.isDigit(update[1][0])){
                     update[1][0] = turn;
                     setGameBoard(update);
                     break;
                 }
+
             case 5:
                 if(Character.isDigit(update[1][1])){
                     update[1][1] = turn;
@@ -48,6 +54,7 @@ public class GamePlay {
                     setGameBoard(update);
                     break;
                 }
+                
             case 7:
                 if(Character.isDigit(update[2][0])){
                     update[2][0] = turn;
@@ -66,9 +73,10 @@ public class GamePlay {
                     setGameBoard(update);
                     break;
                 }
+            default:
+                update_board(selection, turn);    
         }
     }
-
 
     protected void clear_board(){
         char [][] newBoard = getGameBoard();
@@ -83,7 +91,6 @@ public class GamePlay {
         newBoard[2][2] = '9';
         setGameBoard(newBoard);
     }
-
 
     protected boolean winner_checker(){
         char[][] check = getGameBoard();
@@ -108,7 +115,7 @@ public class GamePlay {
         }else if( check[2][0] == getUser() && check[1][1] == getUser() && check[0][2] == getUser()){
             System.out.println("Winner is :" + getUser());
             return true;
-        }else if( check[2][2] == getUser() && check[1][1] == getUser() && check[0][0] == getUser() ){
+        }else if( check[2][2] == getUser() && check[1][1] == getUser() && check[0][0] == getUser()){
             System.out.println("Winner is :" + getUser());
             return true;
         }else if(check[0][0] == computer_character && check[1][0] == computer_character && check[2][0] == computer_character){
@@ -139,10 +146,6 @@ public class GamePlay {
             return false;
     }
 
-
-
-
-
     protected char[][] getGameBoard() {
         return gameBoard;
     }
@@ -167,4 +170,18 @@ public class GamePlay {
     protected char getUser(){
         return user;
     }
+    protected void setPlayer1(String player1){
+        this.player1 = player1;
+    }
+    protected String getPlayer1(){
+        return player1;
+    }
+    protected void setPlayer2(String player2){
+        this.player2 = player2;
+    }
+    protected String getPlayer2(){
+        return player2;
+    }
+
+
 }

@@ -16,10 +16,15 @@ public class Main extends GamePlay {
         try{
 
             System.out.println("Welcome to Tic Tac Toe");
-            System.out.println("Do you want to be X or O");
+            main.clear_board();
+            main.printBoard();
+            // System.out.println("How many players 1 or 2");
+            System.out.println("Enter your name >> ");
+            main.setPlayer1(sc.nextLine());
+            System.out.println("Hi "+ main.getPlayer1() + " Do you want to be X or O");
             main.setUser(sc.nextLine().toUpperCase().charAt(0));
-            System.out.println(main.getUser());
-            System.out.println("The computer is going first.");
+
+            System.out.println(main.getPlayer1() + " the computer is going first.");
 
             if(main.getUser() == 'X'){
                 main.setComputer_character('O');
@@ -27,9 +32,7 @@ public class Main extends GamePlay {
                 main.setComputer_character('X');
             }
 
-            main.setTurn(main.getComputer_character());
-
-            main.clear_board();
+            main.setTurn(main.getComputer_character()); 
 
             int counter = 0;
 
@@ -65,5 +68,7 @@ public class Main extends GamePlay {
         System.out.println("| " + updated[2][0] + " | " + updated[2][1] + " | " + updated[2][2] + " |");
         System.out.println("|---|---|---|");
     }
-}
 
+
+
+}
